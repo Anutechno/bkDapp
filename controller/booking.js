@@ -98,6 +98,7 @@ async function addbooking(req, res) {
            brand:brand,
            address:address,
            description:description,
+           payment_type:payment_type,
            estimated_cost:services.estimated_cost + services.tax,
            created_by : user_id,
       };
@@ -137,6 +138,7 @@ async function addbooking(req, res) {
              brand:brand,
              address:address,
              description:description,
+             payment_type:payment_type,
              estimated_cost:services.estimated_cost + services.tax,
              created_by : user_id,
            };
