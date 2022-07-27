@@ -2,7 +2,7 @@ var express = require('express');
 var multer = require('multer');
 var fs = require('fs-extra');
 const router = express.Router();
-const {paymentRequest, paymentResponse,paymentInvoices} = require("../controller/payment")
+const {paymentRequest,GetAllPayment,Cashpayment,GetPayment, paymentResponse,paymentInvoices,payment,GetPaymentOrder} = require("../controller/payment")
 
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
@@ -20,6 +20,11 @@ const upload = multer({ storage });
 router.post('/paymentrequest',paymentRequest);
 router.post('/paymentresponse',paymentResponse);
 router.get('/Invoices',paymentInvoices);
+router.post('/pay',payment);
+router.post('/cash',Cashpayment);
+router.get('/pay_order/:id',GetPaymentOrder);
+router.get('/getall',GetAllPayment);
+router.get('/get/:id',GetPayment);
 
 
 

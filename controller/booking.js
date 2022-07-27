@@ -202,7 +202,7 @@ async function getallbookings(req, res) {
         // bookingresponce = await apiFeature.query.clone();
 
         const bookingresponce = await booking.find(req.query).populate({path:"service_id",select: ['name', 'image', 'description']})
-                                                             .populate({path:"created_by",select: ['first_name', 'last_name', 'phone','image','address','city']})
+                                                             .populate({path:"created_by",select: ['first_name', 'last_name','email', 'phone','image','address','city']})
 
         if (bookingresponce) {
             var response = {
@@ -247,7 +247,7 @@ async function getbooking(req, res) {
       
         let bookingresponce = await booking.findOne({_id:req.params.id})
                                            .populate({path:"service_id",select: ['name', 'image', 'description']})
-                                           .populate({path:"created_by",select: ['first_name', 'last_name', 'phone','image','address','city']})
+                                           .populate({path:"created_by",select: ['first_name','email', 'last_name', 'phone','image','address','city']})
                                            // .populate({path:"service_provider_id",select: ['name', 'email', 'phone']})
 
         if (bookingresponce) {

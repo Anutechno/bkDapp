@@ -3,15 +3,21 @@ const mongoose = require("mongoose");
 
 const paymentSchema = new mongoose.Schema (
     {
+        cf_order_id:{
+            type:String,
+        },
         orderId:{
+            type:String,
+            // type:mongoose.Schema.Types.ObjectId,
+            // ref:"Booking"
+        },
+        booking_id:{
             type:String,
             // type:mongoose.Schema.Types.ObjectId,
             // ref:"Booking"
         },
         service_provider_id:{
             type:String,
-            // type:mongoose.Schema.Types.ObjectId,
-            // ref:"login"
         },
         user_id:{
             type:mongoose.Schema.Types.ObjectId,
@@ -19,28 +25,20 @@ const paymentSchema = new mongoose.Schema (
         },
         orderAmount:{
             type:Number,
-        },                           
-        referenceId:{
+        },
+        payment_type:{
             type:String,
         },
-        txStatus:{
+        order_currency:{
+            type:String,
+            default:"INR"
+        },
+        order_status:{
             type:String,
         },
-        paymentMode:{
+        order_token:{
             type:String,
-        },
-        txMsg:{
-            type:String,
-        },
-        txTime:{
-            type:String,
-        },
-        signature :{
-            type:String,
-        },
-        computedsignature :{
-            type:String,
-        },
+        },                 
         create_date: {
             type: Date,
             default: Date.now
